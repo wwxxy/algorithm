@@ -2,15 +2,21 @@
 #include <stdlib.h>
 #include <string.h>
 
+static void swap(int *arr, int left, int right){
+	int temp;
+	
+	temp = arr[left];
+	arr[left] = arr[right];
+	arr[right] = temp;
+}
+
 void bubbleSort(int *arr, int n)
 {
-	int i, j, temp;
+	int i, j;
 	for(i = 0; i < n-1; ++i){
 		for(j = 0; j < n-1-i; ++j){
 			if(arr[j] > arr[j+1]){
-				temp = arr[j];
-				arr[j] = arr[j+1];
-				arr[j+1] = temp;
+				swap(arr, j, j+1);
 			}
 		}
 	}
@@ -26,9 +32,7 @@ void selectSort(int *arr, int n)
 				flag = j;
 			}
 		}
-		min = arr[flag];
-		arr[flag] = arr[i];
-		arr[i] = min;
+		swap(arr, flag, i);
 	}
 }
 
@@ -79,15 +83,15 @@ static void merge(int *arr, int left, int mid, int right, int *temp)
   * @param left,right: [in] --> [left,right)
   * @param temp: temporarily store values of result
 */
-static void sort(int *arr, int left, int right, int *temp)
+static void mergeSortRecurse(int *arr, int left, int right, int *temp)
 {
 	int mid;
 	if(left +1 < right){
 		mid = (left+right)/2;
 		
 		//resurse_send
-		sort(arr, left, mid, temp);  //left interval : [left,mid)
-		sort(arr, mid, right, temp); //right interval : [mid,right)
+		mergeSortRecurse(arr, left, mid, temp);  //left interval : [left,mid)
+		mergeSortRecurse(arr, mid, right, temp); //right interval : [mid,right)
 		//recurse_back
 		merge(arr, left, mid, right, temp);
 	}
@@ -105,7 +109,39 @@ int mergeSort(int *arr, int n){
 	}
 	memset(temp, 0, sizeof(temp));
 	
-	sort(arr, 0, n, temp);
+	mergeSortRecurse(arr, 0, n, temp);
 	free(temp);
 	return 0;
+}
+
+static int partition(int *arr, int left, int right){
+	int i, index, pivot;
+	
+	pivot = arr[left];
+	index = left + 1;
+	
+	for(i = index; i <= right; ++i){
+		if(pivot > arr[i]){
+			if(i > index)
+				swap(arr, i, index);
+			swap(arr, index-1, index);
+			++index;
+		}
+	}
+	
+	return index-1;
+}
+
+static void quickSortRecurse(int *arr, int left, int right){
+	int mid;
+	
+	if(left < right){
+		mid = partition(arr, left, right);
+		quickSortRecurse(arr, left, mid-1);
+		quickSortRecurse(arr, mid+1, right);
+	}
+}
+void quickSort(int *arr, int n){
+	
+	quickSortRecurse(arr, 0, n-1);
 }
