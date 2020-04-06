@@ -10,7 +10,7 @@ typedef struct node{
     struct node *lchild, *rchild;
 }BiTree;
 
-#ifndef RECURSE
+#ifndef RECURSE //loop
 void preBiTree(const BiTree *t)
 {
     BiTree *temp = t;
@@ -28,7 +28,6 @@ void preBiTree(const BiTree *t)
         }
     }
 }
-
 
 void inBiTree(const BiTree *t)
 {
@@ -77,7 +76,7 @@ void postBiTree(const BiTree *t)
 }
 #endif // RECURSE
 
-#ifdef RECURSE
+#ifdef RECURSE //recurse
 void preBiTree(BiTree *t)
 {
     if(t != NULL){
