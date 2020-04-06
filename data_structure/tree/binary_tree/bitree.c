@@ -134,13 +134,13 @@ int main(void)
 
     t = createBiTree();
 
-    printf("pre:\n");
+    printf("preorder:\n");
     preBiTree(t);
 
-    printf("\nin:\n");
+    printf("\ninorder:\n");
     inBiTree(t);
 
-    printf("\npost:\n");
+    printf("\npostorder:\n");
     postBiTree(t);
 
     free(t);
