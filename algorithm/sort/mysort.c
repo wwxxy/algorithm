@@ -38,8 +38,8 @@ void selectSort(int *arr, int n)
 
 void insertSort(int *arr, int n){
 	int i, j, min;
-	for(i = 0; i < n; ++i){
-		min = arr[i+1];
+	for(i = 1; i < n; ++i){
+		min = arr[i];
 		for(j = i; j >= 0; --j){
 			if(min < arr[j]){
 				arr[j+1] = arr[j];
