@@ -9,7 +9,7 @@
   - 前序、中序、后序
   - 递归和非递归方式
     
-  代码参考自以下博客：  
+  代码参考自：  
   https://www.cnblogs.com/-oreo/p/10013313.html  
   https://blog.csdn.net/Benja_K/article/details/88389039
 
@@ -18,3 +18,6 @@
 
 ## (1). 排序算法
    - 冒泡排序、选择排序、插入排序、归并排序、快速排序
+   
+   代码参考自：  
+   https://www.cnblogs.com/onepixel/articles/7674659.html
