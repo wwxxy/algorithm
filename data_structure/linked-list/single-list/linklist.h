@@ -30,8 +30,8 @@ int listDeleteVal(ListNode *head, ElemType value);
 //Locate by value
 ListNode *listLocation(ListNode *head, ElemType value);
 
-//Return sorted linked-list using mergeSort  @https://blog.csdn.net/guaiguaitinghua/article/details/90551871
+//Return sorted linked-list using mergeSort  
 ListNode *listSort(ListNode *head);
-//Return reversed linked-list   @https://www.cnblogs.com/huangxincheng/p/4051854.html
+//Return reversed linked-list   
 ListNode *listReverse(ListNode *head);
 #endif // __LINKLIST_H__
