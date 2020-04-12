@@ -12,6 +12,11 @@
   代码参考自：  
   https://www.cnblogs.com/-oreo/p/10013313.html  
   https://blog.csdn.net/Benja_K/article/details/88389039
+## (2). 单链表  
+  - 单链表创建、数组形式初始化、判空、销毁  
+  - 插删查改  
+  - **归并排序** &#160;&#160;参考自：https://blog.csdn.net/guaiguaitinghua/article/details/90551871  
+  - **倒置** &#160;&#160; 参考自：https://www.cnblogs.com/huangxincheng/p/4051854.html
 
 
 # 算法部分
